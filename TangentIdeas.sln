@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangentIdeas.MailWindowsService", "TangentIdeas.MailWindowsService\TangentIdeas.MailWindowsService.csproj", "{BA1D7C9E-E256-4E7F-BB63-635DBC1AE08F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CF107FFC-C00E-4AD5-A2B8-CC919CBED3DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangentIdeas.Core.Common", "Core\TangentIdeas.Core.Common\TangentIdeas.Core.Common.csproj", "{848B7635-DA24-4FC8-9491-1903E402F01F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangentIdeas.Core", "Core\TangentIdeas.Core\TangentIdeas.Core.csproj", "{BF432898-EB4B-4150-A569-FCD561F2C1DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA1D7C9E-E256-4E7F-BB63-635DBC1AE08F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1D7C9E-E256-4E7F-BB63-635DBC1AE08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1D7C9E-E256-4E7F-BB63-635DBC1AE08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1D7C9E-E256-4E7F-BB63-635DBC1AE08F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{848B7635-DA24-4FC8-9491-1903E402F01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{848B7635-DA24-4FC8-9491-1903E402F01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{848B7635-DA24-4FC8-9491-1903E402F01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{848B7635-DA24-4FC8-9491-1903E402F01F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF432898-EB4B-4150-A569-FCD561F2C1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF432898-EB4B-4150-A569-FCD561F2C1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF432898-EB4B-4150-A569-FCD561F2C1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF432898-EB4B-4150-A569-FCD561F2C1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{848B7635-DA24-4FC8-9491-1903E402F01F} = {CF107FFC-C00E-4AD5-A2B8-CC919CBED3DF}
+		{BF432898-EB4B-4150-A569-FCD561F2C1DC} = {CF107FFC-C00E-4AD5-A2B8-CC919CBED3DF}
+	EndGlobalSection
+EndGlobal

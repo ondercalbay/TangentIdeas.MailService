@@ -1,0 +1,5 @@
+D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core.Common\bin\Debug\TangentIdeas.Core.Common.dll
+D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core.Common\bin\Debug\TangentIdeas.Core.Common.pdb
+D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core.Common\obj\Debug\TangentIdeas.Core.Common.csprojResolveAssemblyReference.cache
+D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core.Common\obj\Debug\TangentIdeas.Core.Common.dll
+D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core.Common\obj\Debug\TangentIdeas.Core.Common.pdb
