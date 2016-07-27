@@ -5,9 +5,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using TangentIdeas.Core.Common.Common;
-using TangentIdeas.Core.Common.Exceptions.ExceptionCodes;
-using TangentIdeas.Core.Entities;
+using Tangent.CeviriDukkani.Domain.Common;
+using Tangent.CeviriDukkani.Domain.Dto.Enums;
+using Tangent.CeviriDukkani.Domain.Entities.System;
+using Tangent.CeviriDukkani.Domain.Exceptions.ExceptionCodes;
 using TangentIdeas.MailWindowsService.Interfaces;
 
 namespace TangentIdeas.MailWindowsService.Implementations
@@ -16,7 +17,7 @@ namespace TangentIdeas.MailWindowsService.Implementations
     {       
         #region Implementation of IMailService
 
-        public ServiceResult SendMail(string subject, string message, List<MailTargets> to, MailSenderType mailSender)
+        public ServiceResult SendMail(string subject, string message, List<MailTarget> to, MailSenderTypeEnum mailSender)
         {
             var serviceResult = new ServiceResult
             {

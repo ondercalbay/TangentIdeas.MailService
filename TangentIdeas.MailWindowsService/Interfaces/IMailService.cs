@@ -1,11 +1,12 @@
-﻿using TangentIdeas.Core.Common.Common;
-using TangentIdeas.Core.Entities;
+﻿
+using Tangent.CeviriDukkani.Domain.Common;
+using Tangent.CeviriDukkani.Domain.Entities.System;
 
 namespace TangentIdeas.MailWindowsService.Interfaces
 {
     public interface IMailService
     {
-        ServiceResult Add(Mail mail);
+        ServiceResult Add(MailItem mail);
         ServiceResult GetWaitingMail();
         ServiceResult SendWaitingMails();
     }

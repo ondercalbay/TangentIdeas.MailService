@@ -5,22 +5,23 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using TangentIdeas.Core.Common.Common;
-using TangentIdeas.Core.Common.Exceptions;
-using TangentIdeas.Core.Common.Exceptions.ExceptionCodes;
-using TangentIdeas.Core.Entities;
+using Tangent.CeviriDukkani.Data.Model;
+using Tangent.CeviriDukkani.Domain.Common;
+using Tangent.CeviriDukkani.Domain.Dto.Enums;
+using Tangent.CeviriDukkani.Domain.Entities.System;
+using Tangent.CeviriDukkani.Domain.Exceptions;
+using Tangent.CeviriDukkani.Domain.Exceptions.ExceptionCodes;
 using TangentIdeas.MailWindowsService.Interfaces;
-using TangentIdeas.MailWindowsService.Model;
 
 namespace TangentIdeas.MailWindowsService.Implementations
 {
     public class MailService: IMailService
     {
         internal ILog Log { get; } = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private readonly MailServiceModel _model;
+        private readonly CeviriDukkaniModel _model;
         private readonly IMailSenderService _mailSenderService;
 
-        public MailService(MailServiceModel model,IMailSenderService mailSenderService)
+        public MailService(CeviriDukkaniModel model,IMailSenderService mailSenderService)
         {
             _model = model;
             _mailSenderService = mailSenderService;
@@ -31,7 +32,7 @@ namespace TangentIdeas.MailWindowsService.Implementations
             var serviceResult = new ServiceResult();
             try
             {
-                var mail = _model.Mail.Select(m=>m.Status == Core.Entities.MailStatusType.Waiting);
+                var mail = _model.Mail.Select(m=>m.Status == MailStatusTypeEnum.Waiting);
                 if (mail == null)
                 {
                     throw new DbOperationException(ExceptionCodes.NoRelatedData);
@@ -48,7 +49,7 @@ namespace TangentIdeas.MailWindowsService.Implementations
             return serviceResult;
         }
 
-        public ServiceResult Add(Mail mail)
+        public ServiceResult Add(MailItem mail)
         {
             var serviceResult = new ServiceResult(ServiceResultType.NotKnown);
             try
@@ -71,7 +72,7 @@ namespace TangentIdeas.MailWindowsService.Implementations
             var serviceResult = new ServiceResult();
             try
             {
-                var mails = _model.Mail.Where(m => m.Status == MailStatusType.Waiting).ToList();
+                var mails = _model.Mail.Where(m => m.Status == MailStatusTypeEnum.Waiting).ToList();
                 if (mails == null)
                 {
                     throw new DbOperationException(ExceptionCodes.NoRelatedData);
@@ -95,19 +96,19 @@ namespace TangentIdeas.MailWindowsService.Implementations
             return serviceResult;
         }
 
-        private void SendMail(Mail item)
+        private void SendMail(MailItem item)
         {
               
             var resultMail = new ServiceResult();
             resultMail = _mailSenderService.SendMail(item.Subject, item.Message, item.To, item.MailSender);
             if ((bool)resultMail.Data)
             {
-                item.Status = MailStatusType.Sent;
+                item.Status = MailStatusTypeEnum.Sent;
                 item.SendTime = DateTime.Now;
             }
             else
             {
-                item.Status = MailStatusType.Error;
+                item.Status = MailStatusTypeEnum.Error;
                 item.Exception = resultMail.Exception.Message;
             }
             item.UpdatedAt = DateTime.Now;
