@@ -1,13 +1,15 @@
-﻿'D:\Önder\Projeler\TangentIdeas\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yükleniyor.
+﻿'D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yükleniyor.
 Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
    logtoconsole = 
-   logfile = D:\Önder\Projeler\TangentIdeas\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
-   assemblypath = D:\Önder\Projeler\TangentIdeas\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
 TangentIdeas.MailWindowsService hizmeti yükleniyor...
 TangentIdeas.MailWindowsService hizmeti başarıyla yüklendi.
 Application günlüğünde TangentIdeas.MailWindowsService EventLog kaynağı oluşturuluyor...
-'D:\Önder\Projeler\TangentIdeas\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi tamamlanıyor.
+'D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi tamamlanıyor.
 Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
    logtoconsole = 
-   logfile = D:\Önder\Projeler\TangentIdeas\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
-   assemblypath = D:\Önder\Projeler\TangentIdeas\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe

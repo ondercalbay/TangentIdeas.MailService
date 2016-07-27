@@ -3,6 +3,7 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using TangentIdeas.Core.Common.Common;
 using TangentIdeas.Core.Common.Exceptions;
 using TangentIdeas.Core.Common.Exceptions.ExceptionCodes;
@@ -77,9 +78,8 @@ namespace TangentIdeas.MailWindowsService.Implementations
 
                 foreach (var item in mails)
                 {
-                    _mailSenderService.SendMail(item.Subject, item.Message, item.To, item.MailSender);
-                    _model.Entry(item).State = EntityState.Modified;
-                    _model.SaveChanges();
+                    Thread thread1 = new Thread(SendMail);
+                    thread1.Start(item);
                 }
 
                 serviceResult.ServiceResultType = ServiceResultType.Success;
@@ -92,6 +92,26 @@ namespace TangentIdeas.MailWindowsService.Implementations
                 //Log.Error($"Error occured in {MethodBase.GetCurrentMethod().Name} with exception message {exc.Message} and inner exception {exc.InnerException?.Message}");
             }
             return serviceResult;
+        }
+
+        private void SendMail(object obj)
+        {
+            Mail item = (Mail)obj;
+            var resultMail = new ServiceResult();
+            resultMail = _mailSenderService.SendMail(item.Subject, item.Message, item.To, item.MailSender);
+            if ((bool)resultMail.Data)
+            {
+                item.Status = MailStatusType.Sent;
+                item.SendTime = DateTime.Now;
+            }
+            else
+            {
+                item.Status = MailStatusType.Error;
+                item.Exception = resultMail.Exception.Message;
+            }
+            item.UpdatedAt = DateTime.Now;
+            _model.Entry(item).State = EntityState.Modified;
+            _model.SaveChanges();
         }
     }
 }

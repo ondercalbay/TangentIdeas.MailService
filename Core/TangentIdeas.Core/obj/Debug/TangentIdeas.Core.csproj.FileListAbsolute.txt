@@ -3,3 +3,8 @@ D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core\bin\Debug\TangentIdeas.Co
 D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core\obj\Debug\TangentIdeas.Core.csprojResolveAssemblyReference.cache
 D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core\obj\Debug\TangentIdeas.Core.dll
 D:\Önder\Projeler\TangentIdeas\Core\TangentIdeas.Core\obj\Debug\TangentIdeas.Core.pdb
+D:\öNDER\Kişisel\Projeler\MailService\Core\TangentIdeas.Core\bin\Debug\TangentIdeas.Core.dll
+D:\öNDER\Kişisel\Projeler\MailService\Core\TangentIdeas.Core\bin\Debug\TangentIdeas.Core.pdb
+D:\öNDER\Kişisel\Projeler\MailService\Core\TangentIdeas.Core\obj\Debug\TangentIdeas.Core.csprojResolveAssemblyReference.cache
+D:\öNDER\Kişisel\Projeler\MailService\Core\TangentIdeas.Core\obj\Debug\TangentIdeas.Core.dll
+D:\öNDER\Kişisel\Projeler\MailService\Core\TangentIdeas.Core\obj\Debug\TangentIdeas.Core.pdb

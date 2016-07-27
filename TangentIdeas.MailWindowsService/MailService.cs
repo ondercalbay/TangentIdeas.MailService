@@ -27,9 +27,7 @@ namespace TangentIdeas.MailWindowsService
 
             _mailService = new Implementations.MailService(new MailServiceModel(), new YandexMailService());
         }
-
-
-
+        
         private void TmMail_Elapsed(object sender, ElapsedEventArgs e)
         {
             tmMail.Enabled = false;
