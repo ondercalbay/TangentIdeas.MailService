@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 using TangentIdeas.Core.Common.Common;
 using TangentIdeas.Core.Common.Exceptions;
 using TangentIdeas.Core.Common.Exceptions.ExceptionCodes;
@@ -76,12 +77,12 @@ namespace TangentIdeas.MailWindowsService.Implementations
                     throw new DbOperationException(ExceptionCodes.NoRelatedData);
                 }
 
-                foreach (var item in mails)
+                Parallel.ForEach(mails, i =>
                 {
-                    Thread thread1 = new Thread(SendMail);
-                    thread1.Start(item);
+                    SendMail(i);
                 }
-
+                );
+                
                 serviceResult.ServiceResultType = ServiceResultType.Success;
                 serviceResult.Data = mails;
             }
@@ -94,9 +95,9 @@ namespace TangentIdeas.MailWindowsService.Implementations
             return serviceResult;
         }
 
-        private void SendMail(object obj)
+        private void SendMail(Mail item)
         {
-            Mail item = (Mail)obj;
+              
             var resultMail = new ServiceResult();
             resultMail = _mailSenderService.SendMail(item.Subject, item.Message, item.To, item.MailSender);
             if ((bool)resultMail.Data)
