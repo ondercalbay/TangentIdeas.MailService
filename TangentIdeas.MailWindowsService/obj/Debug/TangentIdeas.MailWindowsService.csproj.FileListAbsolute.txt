@@ -55,3 +55,5 @@ D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debu
 D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\log4net.xml
 D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\obj\Debug\TangentIdeas.MailWindowsService.exe
 D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\obj\Debug\TangentIdeas.MailWindowsService.pdb
+E:\ExternalProjects\Web\CeviriDukkaniProject\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangetIdeas.MailService.Business.dll
+E:\ExternalProjects\Web\CeviriDukkaniProject\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangetIdeas.MailService.Business.pdb

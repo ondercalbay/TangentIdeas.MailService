@@ -2,10 +2,10 @@
 using System.Net.Http;
 using System.Web.Http;
 using Tangent.CeviriDukkani.Data.Model;
+using Tangent.CeviriDukkani.Domain.Dto.Request;
 using Tangent.CeviriDukkani.WebCore.BaseControllers;
-using TangentIdeas.Mail.Api.Controllers;
 
-namespace TangetIdeas.MailService.Business.Implementations
+namespace TangentIdeas.Mail.Api.Controllers
 {
     [RoutePrefix("api/homeapi")]
     public class HomeApiController : BaseApiController {
