@@ -1,12 +1,11 @@
-﻿using log4net;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using Tangent.CeviriDukkani.Data.Model;
 using Tangent.CeviriDukkani.Domain.Common;
 using Tangent.CeviriDukkani.Domain.Dto.Enums;
+using Tangent.CeviriDukkani.Domain.Dto.Request;
 using Tangent.CeviriDukkani.Domain.Entities.System;
 using Tangent.CeviriDukkani.Domain.Exceptions;
 using Tangent.CeviriDukkani.Domain.Exceptions.ExceptionCodes;
@@ -16,7 +15,7 @@ namespace TangetIdeas.MailService.Business.Implementations
 {
     public class MailService : IMailService
     {
-        internal ILog Log { get; } = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        //internal ILog Log { get; } = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private readonly CeviriDukkaniModel _model;
         private readonly IMailSenderService _mailSenderService;
 
@@ -113,6 +112,11 @@ namespace TangetIdeas.MailService.Business.Implementations
             item.UpdatedAt = DateTime.Now;
             _model.Entry(item).State = EntityState.Modified;
             _model.SaveChanges();
+        }
+
+        public ServiceResult AddMails(SendMailRequestDto sendMailRequest)
+        {
+            throw new NotImplementedException();
         }
     }
 }

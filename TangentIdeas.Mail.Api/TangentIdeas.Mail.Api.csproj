@@ -109,6 +109,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\TangetIdeas.MailService.Business\TangetIdeas.MailService.Business.csproj">
+      <Project>{48562ee3-b971-4afa-a72d-e3cbdc896ac4}</Project>
+      <Name>TangetIdeas.MailService.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

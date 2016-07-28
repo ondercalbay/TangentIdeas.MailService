@@ -3,6 +3,7 @@ using System.ServiceProcess;
 using System.Timers;
 using Tangent.CeviriDukkani.Data.Model;
 using TangetIdeas.MailService.Business.Implementations;
+using TangetIdeas.MailService.Business.Interfaces;
 
 namespace TangentIdeas.MailWindowsService
 {
@@ -14,7 +15,7 @@ namespace TangentIdeas.MailWindowsService
         }
         Timer tmMail = new Timer();
 
-        private TangetIdeas.MailService.Business.Interfaces.IMailService _mailService;
+        private IMailService _mailService;
 
         protected override void OnStart(string[] args)
         {

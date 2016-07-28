@@ -1,5 +1,6 @@
 ﻿
 using Tangent.CeviriDukkani.Domain.Common;
+using Tangent.CeviriDukkani.Domain.Dto.Request;
 using Tangent.CeviriDukkani.Domain.Entities.System;
 
 namespace TangetIdeas.MailService.Business.Interfaces
@@ -9,5 +10,6 @@ namespace TangetIdeas.MailService.Business.Interfaces
         //ServiceResult Add(MailItem mail);
         ServiceResult GetWaitingMail();
         ServiceResult SendWaitingMails();
+        ServiceResult AddMails(SendMailRequestDto sendMailRequest);
     }
 }
