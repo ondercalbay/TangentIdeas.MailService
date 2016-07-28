@@ -2,20 +2,19 @@
 using System.ServiceProcess;
 using System.Timers;
 using Tangent.CeviriDukkani.Data.Model;
-using TangentIdeas.MailWindowsService.Implementations;
-using TangentIdeas.MailWindowsService.Interfaces;
+using TangetIdeas.MailService.Business.Implementations;
 
 namespace TangentIdeas.MailWindowsService
 {
-    partial class MailService : ServiceBase
+    partial class MailWindowsService : ServiceBase
     {
-        public MailService()
+        public MailWindowsService()
         {
             InitializeComponent();
         }
         Timer tmMail = new Timer();
 
-        private IMailService _mailService;
+        private TangetIdeas.MailService.Business.Interfaces.IMailService _mailService;
 
         protected override void OnStart(string[] args)
         {
@@ -25,7 +24,7 @@ namespace TangentIdeas.MailWindowsService
             tmMail.Start();
             tmMail.Elapsed += TmMail_Elapsed;
 
-            _mailService = new Implementations.MailService(new CeviriDukkaniModel(), new YandexMailService());
+            _mailService = new MailService(new CeviriDukkaniModel(), new YandexMailService());
         }
         
         private void TmMail_Elapsed(object sender, ElapsedEventArgs e)
@@ -38,7 +37,7 @@ namespace TangentIdeas.MailWindowsService
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
 
             tmMail.Enabled = true;

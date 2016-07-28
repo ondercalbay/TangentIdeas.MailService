@@ -17,7 +17,7 @@ namespace TangentIdeas.MailWindowsService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new MailService()
+                new MailWindowsService()
             };
             ServiceBase.Run(ServicesToRun);
         }

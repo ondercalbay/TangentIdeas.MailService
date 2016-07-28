@@ -1,6 +1,6 @@
 ﻿namespace TangentIdeas.MailWindowsService
 {
-    partial class MailService
+    partial class MailWindowsService
     {
         /// <summary> 
         /// Required designer variable.

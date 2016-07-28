@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 using Tangent.CeviriDukkani.Data.Model;
 using Tangent.CeviriDukkani.WebCore.BaseControllers;
+using TangentIdeas.Mail.Api.Controllers;
 
-namespace TangentIdeas.Mail.Api.Controllers {
+namespace TangetIdeas.MailService.Business.Implementations
+{
     [RoutePrefix("api/homeapi")]
     public class HomeApiController : BaseApiController {
         private readonly CeviriDukkaniModel _model;
@@ -20,7 +17,7 @@ namespace TangentIdeas.Mail.Api.Controllers {
 
         [HttpGet, Route("hello")]
         public string Hello() {
-            return "Hello";
+            return "Hello Api";
         }
 
         [HttpPost, Route("sendMails")]

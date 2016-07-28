@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using Tangent.CeviriDukkani.Domain.Common;
 using Tangent.CeviriDukkani.Domain.Dto.Enums;
 using Tangent.CeviriDukkani.Domain.Entities.System;
 using Tangent.CeviriDukkani.Domain.Exceptions.ExceptionCodes;
-using TangentIdeas.MailWindowsService.Interfaces;
+using TangetIdeas.MailService.Business.Interfaces;
 
-namespace TangentIdeas.MailWindowsService.Implementations
+namespace TangetIdeas.MailService.Business.Implementations
 {
-    class YandexMailService: IMailSenderService
-    {       
+    public class YandexMailService : IMailSenderService
+    {
         #region Implementation of IMailService
 
         public ServiceResult SendMail(string subject, string message, List<MailTarget> to, MailSenderTypeEnum mailSender)
