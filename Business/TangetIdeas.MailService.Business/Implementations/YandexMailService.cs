@@ -13,7 +13,7 @@ using TangetIdeas.MailService.Business.Interfaces;
 namespace TangetIdeas.MailService.Business.Implementations
 {
     public class YandexMailService : IMailSenderService
-    {
+    {        
         #region Implementation of IMailService
 
         public ServiceResult SendMail(string subject, string message, List<MailTarget> to, MailSenderTypeEnum mailSender)
@@ -57,6 +57,31 @@ namespace TangetIdeas.MailService.Business.Implementations
                 //};
                 smtp.Send(mail);
 
+                serviceResult.ServiceResultType = ServiceResultType.Success;
+                serviceResult.Data = true;
+
+            }
+            catch (Exception exc)
+            {
+                serviceResult.ServiceResultType = ServiceResultType.Fail;
+                serviceResult.Exception = exc;
+                serviceResult.Data = false;
+                serviceResult.ExceptionCode = ExceptionCodes.EmailCouldntSendToUser;
+            }
+
+            return serviceResult;
+
+        }
+
+        public ServiceResult SendMail(MailItem mailItem)
+        {
+            var serviceResult = new ServiceResult
+            {
+                ServiceResultType = ServiceResultType.NotKnown
+            };
+            try
+            {                
+                SendMail(mailItem.Subject, mailItem.Message, mailItem.To, mailItem.MailSender);
                 serviceResult.ServiceResultType = ServiceResultType.Success;
                 serviceResult.Data = true;
 

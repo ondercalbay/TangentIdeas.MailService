@@ -8,5 +8,6 @@ namespace TangetIdeas.MailService.Business.Interfaces
     public interface IMailSenderService
     {
         ServiceResult SendMail(string subject, string message, List<MailTarget> to, MailSenderTypeEnum mailSender);
+        ServiceResult SendMail(MailItem mailItem);
     }
 }

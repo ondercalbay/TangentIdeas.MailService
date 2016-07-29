@@ -32,7 +32,7 @@ namespace TangentIdeas.Mail.Api.Controllers
             test.MailSender = MailSenderTypeEnum.System;
             test.Message = "Test Mesajıdır.";
             test.Subject = "Test Mesajıdır.";
-            test.To = new List<MailTarget> { new MailTarget { MailAddres = "ondercalbay@hotmail.com" } };
+            test.To = new List<string> { "ondercalbay@hotmail.com" } ;
             
             return JsonConvert.SerializeObject(test);
         }
@@ -47,7 +47,11 @@ namespace TangentIdeas.Mail.Api.Controllers
                 mailItem.MailSender = sendMailRequest.MailSender;
                 mailItem.Message = sendMailRequest.Message;
                 mailItem.Subject = sendMailRequest.Subject;
-                mailItem.To = sendMailRequest.To;
+                mailItem.To = new List<MailTarget>();
+                foreach (var item in sendMailRequest.To)
+                {
+                    mailItem.To.Add(new MailTarget { MailAddres = item });
+                }
                 var serviceResult = _mailService.Add(mailItem);
 
             }

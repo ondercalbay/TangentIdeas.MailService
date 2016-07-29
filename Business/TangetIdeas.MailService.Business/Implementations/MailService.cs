@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -123,8 +124,17 @@ namespace TangetIdeas.MailService.Business.Implementations
                 mailItem.MailSender = sendMailRequest.MailSender;
                 mailItem.Message = sendMailRequest.Message;
                 mailItem.Subject = sendMailRequest.Subject;
-                mailItem.To = sendMailRequest.To;
+                List<MailTarget> To = new List<MailTarget>();
+                foreach (var item in sendMailRequest.To)
+                {
+                    To.Add(new MailTarget { MailAddres = item, Active = true });
+                }
+                mailItem.To = To;
+                mailItem.Status = MailStatusTypeEnum.Progress;
                 serviceResult = Add(mailItem);
+
+                _mailSenderService.SendMail(mailItem);
+
             }
             catch (Exception exc)
             {
