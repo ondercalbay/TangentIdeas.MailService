@@ -77,11 +77,10 @@ namespace TangetIdeas.MailService.Business.Implementations
                     throw new DbOperationException(ExceptionCodes.NoRelatedData);
                 }
 
-                Parallel.ForEach(mails, i =>
+                Task.Run(() =>
                 {
-                    SendMail(i);
-                }
-                );
+                    Parallel.ForEach(mails, i => { SendMail(i); });
+                });
 
                 serviceResult.ServiceResultType = ServiceResultType.Success;
                 serviceResult.Data = mails;
@@ -100,22 +99,22 @@ namespace TangetIdeas.MailService.Business.Implementations
             var serviceResult = new ServiceResult();
             try
             {
-                
-            serviceResult = _mailSenderService.SendMail(item.Subject, item.Message, item.To, item.MailSender);
-            if (serviceResult.ServiceResultType == ServiceResultType.Success)
-            {
-                item.Status = MailStatusTypeEnum.Sent;
-                item.SendTime = DateTime.Now;
-            }
-            else
-            {
-                item.Status = MailStatusTypeEnum.Error;
-                item.Exception = serviceResult.Exception.Message;
-            }
-            item.UpdatedAt = DateTime.Now;
-            _model.Entry(item).State = EntityState.Modified;
-            _model.SaveChanges();
-            serviceResult.ServiceResultType = ServiceResultType.Success;
+
+                serviceResult = _mailSenderService.SendMail(item.Subject, item.Message, item.To, item.MailSender);
+                if (serviceResult.ServiceResultType == ServiceResultType.Success)
+                {
+                    item.Status = MailStatusTypeEnum.Sent;
+                    item.SendTime = DateTime.Now;
+                }
+                else
+                {
+                    item.Status = MailStatusTypeEnum.Error;
+                    item.Exception = serviceResult.Exception.Message;
+                }
+                item.UpdatedAt = DateTime.Now;
+                _model.Entry(item).State = EntityState.Modified;
+                _model.SaveChanges();
+                serviceResult.ServiceResultType = ServiceResultType.Success;
             }
             catch (Exception exc)
             {
@@ -154,6 +153,6 @@ namespace TangetIdeas.MailService.Business.Implementations
             }
             return serviceResult;
         }
- 
+
     }
 }

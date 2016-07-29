@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -17,23 +18,10 @@ namespace TangentIdeas.Mail.Api.Controllers
 {
     [RoutePrefix("api/homeapi")]
     public class HomeApiController : BaseApiController {
-        private readonly CeviriDukkaniModel _model;
-        private IMailService _mailService;
+        private readonly IMailService _mailService;
 
-        public HomeApiController() {
-            _model = new CeviriDukkaniModel();
-            _mailService = new MailService(new CeviriDukkaniModel(), new YandexMailService());
-        }
-
-        [HttpGet, Route("hello")]
-        public string Hello() {
-            SendMailRequestDto test = new SendMailRequestDto();
-            test.MailSender = MailSenderTypeEnum.System;
-            test.Message = "Test Mesajıdır.";
-            test.Subject = "Test Mesajıdır.";
-            test.To = new List<string> { "ondercalbay@hotmail.com" } ;
-            
-            return JsonConvert.SerializeObject(test);
+        public HomeApiController(IMailService mailService) {
+            _mailService = mailService;
         }
 
         [HttpPost, Route("sendMails")]
@@ -46,14 +34,10 @@ namespace TangentIdeas.Mail.Api.Controllers
                 mailItem.MailSender = sendMailRequest.MailSender;
                 mailItem.Message = sendMailRequest.Message;
                 mailItem.Subject = sendMailRequest.Subject;
-                mailItem.To = new List<MailTarget>();
-                foreach (var item in sendMailRequest.To)
-                {
-                    mailItem.To.Add(new MailTarget { MailAddres = item });
-                }
+                mailItem.Status = MailStatusTypeEnum.Waiting;
+                mailItem.To = sendMailRequest.To.Select(a => new MailTarget { MailAddres = a }).ToList();
+                
                 var serviceResult = _mailService.Add(mailItem);
-
-                serviceResult = _mailService.SendMail((MailItem)serviceResult.Data);
             }
             catch
             {
