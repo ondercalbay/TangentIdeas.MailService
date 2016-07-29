@@ -114,9 +114,24 @@ namespace TangetIdeas.MailService.Business.Implementations
             _model.SaveChanges();
         }
 
-        public ServiceResult AddMails(SendMailRequestDto sendMailRequest)
+        public ServiceResult Add(SendMailRequestDto sendMailRequest)
         {
-            throw new NotImplementedException();
+            var serviceResult = new ServiceResult(ServiceResultType.NotKnown);
+            try
+            {
+                MailItem mailItem = new MailItem();
+                mailItem.MailSender = sendMailRequest.MailSender;
+                mailItem.Message = sendMailRequest.Message;
+                mailItem.Subject = sendMailRequest.Subject;
+                mailItem.To = sendMailRequest.To;
+                serviceResult = Add(mailItem);
+            }
+            catch (Exception exc)
+            {
+                serviceResult.Exception = exc;
+                serviceResult.ServiceResultType = ServiceResultType.Fail;
+            }
+            return serviceResult;
         }
     }
 }

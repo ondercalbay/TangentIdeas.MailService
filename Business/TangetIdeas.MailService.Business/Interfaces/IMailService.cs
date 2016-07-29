@@ -7,9 +7,9 @@ namespace TangetIdeas.MailService.Business.Interfaces
 {
     public interface IMailService
     {
-        //ServiceResult Add(MailItem mail);
+        ServiceResult Add(MailItem mail);
         ServiceResult GetWaitingMail();
         ServiceResult SendWaitingMails();
-        ServiceResult AddMails(SendMailRequestDto sendMailRequest);
+        ServiceResult Add(SendMailRequestDto sendMailRequest);
     }
 }

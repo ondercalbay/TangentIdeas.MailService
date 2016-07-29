@@ -1,11 +1,18 @@
-﻿using System.Net;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Tangent.CeviriDukkani.Data.Model;
+using Tangent.CeviriDukkani.Domain.Dto.Enums;
 using Tangent.CeviriDukkani.Domain.Dto.Request;
+using Tangent.CeviriDukkani.Domain.Entities.System;
 using Tangent.CeviriDukkani.WebCore.BaseControllers;
 using TangetIdeas.MailService.Business.Implementations;
 using TangetIdeas.MailService.Business.Interfaces;
+
+
 
 namespace TangentIdeas.Mail.Api.Controllers
 {
@@ -21,17 +28,33 @@ namespace TangentIdeas.Mail.Api.Controllers
 
         [HttpGet, Route("hello")]
         public string Hello() {
-            return "Hello Api";
+            SendMailRequestDto test = new SendMailRequestDto();
+            test.MailSender = MailSenderTypeEnum.System;
+            test.Message = "Test Mesajıdır.";
+            test.Subject = "Test Mesajıdır.";
+            test.To = new List<MailTarget> { new MailTarget { MailAddres = "ondercalbay@hotmail.com" } };
+            
+            return JsonConvert.SerializeObject(test);
         }
 
         [HttpPost, Route("sendMails")]
         public HttpResponseMessage SendMails([FromBody]SendMailRequestDto sendMailRequest) {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
 
-            _mailService.AddMails(sendMailRequest);
+            try
+            {
+                MailItem mailItem = new MailItem();
+                mailItem.MailSender = sendMailRequest.MailSender;
+                mailItem.Message = sendMailRequest.Message;
+                mailItem.Subject = sendMailRequest.Subject;
+                mailItem.To = sendMailRequest.To;
+                var serviceResult = _mailService.Add(mailItem);
 
-
-
+            }
+            catch (Exception ex)
+            {
+                result = new HttpResponseMessage(HttpStatusCode.NotFound);
+            }
             return result;
         }
     }
