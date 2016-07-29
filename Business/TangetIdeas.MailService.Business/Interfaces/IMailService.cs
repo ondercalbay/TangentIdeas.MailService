@@ -11,5 +11,6 @@ namespace TangetIdeas.MailService.Business.Interfaces
         ServiceResult GetWaitingMail();
         ServiceResult SendWaitingMails();
         ServiceResult Add(SendMailRequestDto sendMailRequest);
+        ServiceResult SendMail(MailItem mailItem);
     }
 }

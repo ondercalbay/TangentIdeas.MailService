@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -54,6 +53,7 @@ namespace TangentIdeas.Mail.Api.Controllers
                 }
                 var serviceResult = _mailService.Add(mailItem);
 
+                serviceResult = _mailService.SendMail((MailItem)serviceResult.Data);
             }
             catch
             {

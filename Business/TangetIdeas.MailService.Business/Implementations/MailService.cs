@@ -95,12 +95,14 @@ namespace TangetIdeas.MailService.Business.Implementations
             return serviceResult;
         }
 
-        private void SendMail(MailItem item)
+        public ServiceResult SendMail(MailItem item)
         {
-
-            var resultMail = new ServiceResult();
-            resultMail = _mailSenderService.SendMail(item.Subject, item.Message, item.To, item.MailSender);
-            if ((bool)resultMail.Data)
+            var serviceResult = new ServiceResult();
+            try
+            {
+                
+            serviceResult = _mailSenderService.SendMail(item.Subject, item.Message, item.To, item.MailSender);
+            if (serviceResult.ServiceResultType == ServiceResultType.Success)
             {
                 item.Status = MailStatusTypeEnum.Sent;
                 item.SendTime = DateTime.Now;
@@ -108,11 +110,20 @@ namespace TangetIdeas.MailService.Business.Implementations
             else
             {
                 item.Status = MailStatusTypeEnum.Error;
-                item.Exception = resultMail.Exception.Message;
+                item.Exception = serviceResult.Exception.Message;
             }
             item.UpdatedAt = DateTime.Now;
             _model.Entry(item).State = EntityState.Modified;
             _model.SaveChanges();
+            serviceResult.ServiceResultType = ServiceResultType.Success;
+            }
+            catch (Exception exc)
+            {
+                serviceResult.Exception = exc;
+                serviceResult.ServiceResultType = ServiceResultType.Fail;
+                //Log.Error($"Error occured in {MethodBase.GetCurrentMethod().Name} with exception message {exc.Message} and inner exception {exc.InnerException?.Message}");
+            }
+            return serviceResult;
         }
 
         public ServiceResult Add(SendMailRequestDto sendMailRequest)
@@ -143,5 +154,6 @@ namespace TangetIdeas.MailService.Business.Implementations
             }
             return serviceResult;
         }
+ 
     }
 }
