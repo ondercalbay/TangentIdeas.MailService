@@ -51,7 +51,7 @@ namespace TangentIdeas.Mail.Api.Controllers
                 var serviceResult = _mailService.Add(mailItem);
 
             }
-            catch (Exception ex)
+            catch
             {
                 result = new HttpResponseMessage(HttpStatusCode.NotFound);
             }

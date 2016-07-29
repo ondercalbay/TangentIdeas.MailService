@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{6E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangetIdeas.MailService.Business", "Business\TangetIdeas.MailService.Business\TangetIdeas.MailService.Business.csproj", "{48562EE3-B971-4AFA-A72D-E3CBDC896AC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangentIdeas.Mail.UnitTest", "TangentIdeas.Mail.UnitTest\TangentIdeas.Mail.UnitTest.csproj", "{0D9077EC-B1C7-4CB0-91AA-E72C0E4F9339}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{48562EE3-B971-4AFA-A72D-E3CBDC896AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48562EE3-B971-4AFA-A72D-E3CBDC896AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48562EE3-B971-4AFA-A72D-E3CBDC896AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D9077EC-B1C7-4CB0-91AA-E72C0E4F9339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D9077EC-B1C7-4CB0-91AA-E72C0E4F9339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D9077EC-B1C7-4CB0-91AA-E72C0E4F9339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D9077EC-B1C7-4CB0-91AA-E72C0E4F9339}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
