@@ -76,16 +76,16 @@ namespace TangetIdeas.MailService.Business.Implementations
             var serviceResult = new ServiceResult();
             try
             {
-                var mails = _model.Mail.Where(m => m.Status == MailStatusTypeEnum.Waiting).ToList();
+                var mails = _model.Mail.Include(a=>a.To).Where(m => m.Status == MailStatusTypeEnum.Waiting).ToList();
                 if (mails == null)
                 {
                     throw new DbOperationException(ExceptionCodes.NoRelatedData);
                 }
 
-                Task.Run(() =>
-                {
+                //Task.Run(() =>
+                //{
                     Parallel.ForEach(mails, i => { SendMail(i); });
-                });
+                //});
 
                 serviceResult.ServiceResultType = ServiceResultType.Success;
                 serviceResult.Data = mails;

@@ -60,3 +60,54 @@ TangentIdeas.MailWindowsService EventLog kaynağı kaldırılıyor.
 Uyarı: TangentIdeas.MailWindowsService kaynağı yerel makinede kayıtlı değil.
 TangentIdeas.MailWindowsService hizmeti sistemden kaldırılıyor...
 TangentIdeas.MailWindowsService hizmeti sistemden başarıyla kaldırıldı.
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yükleniyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService hizmeti yükleniyor...
+Application günlüğünde TangentIdeas.MailWindowsService EventLog kaynağı oluşturuluyor...
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi geri alınıyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService kaynağı için olay günlüğü önceki duruma döndürülüyor.
+System.Diagnostics.EventLogInstaller yükleyicisinin Geri Alma aşamasında özel durum oluştu.
+System.Security.SecurityException: Kaynak bulunamadı; ancak olay günlüklerinin bazılarında veya hiçbirinde arama yapılamadı. Erişilemeyen günlükler: Security.
+Yüklemenin Geri Alma aşamasında özel durum oluştu. Bu özel durum yoksayılacak ve geri alma devam edecek. Ancak geri alma tamamlandıktan sonra makine ilk durumuna tamamen dönemeyebilir.
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yükleniyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService hizmeti yükleniyor...
+Application günlüğünde TangentIdeas.MailWindowsService EventLog kaynağı oluşturuluyor...
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi geri alınıyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService kaynağı için olay günlüğü önceki duruma döndürülüyor.
+System.Diagnostics.EventLogInstaller yükleyicisinin Geri Alma aşamasında özel durum oluştu.
+System.Security.SecurityException: Kaynak bulunamadı; ancak olay günlüklerinin bazılarında veya hiçbirinde arama yapılamadı. Erişilemeyen günlükler: Security.
+Yüklemenin Geri Alma aşamasında özel durum oluştu. Bu özel durum yoksayılacak ve geri alma devam edecek. Ancak geri alma tamamlandıktan sonra makine ilk durumuna tamamen dönemeyebilir.
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yükleniyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService hizmeti yükleniyor...
+TangentIdeas.MailWindowsService hizmeti başarıyla yüklendi.
+Application günlüğünde TangentIdeas.MailWindowsService EventLog kaynağı oluşturuluyor...
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi tamamlanıyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
