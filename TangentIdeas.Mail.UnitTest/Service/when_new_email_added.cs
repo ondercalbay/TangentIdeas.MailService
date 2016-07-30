@@ -6,6 +6,7 @@ using Tangent.CeviriDukkani.Data.Model;
 using Tangent.CeviriDukkani.Domain.Common;
 using Tangent.CeviriDukkani.Domain.Dto.Enums;
 using Tangent.CeviriDukkani.Domain.Entities.System;
+using Tangent.CeviriDukkani.Logging;
 using TangetIdeas.MailService.Business.Implementations;
 using TangetIdeas.MailService.Business.Interfaces;
 
@@ -39,7 +40,7 @@ namespace TangentIdeas.Mail.UnitTest.Service
                 ServiceResultType = ServiceResultType.Success
             });
 
-            _mailService = new MailService(modelMock.Object, mailSenderServiceMock.Object);
+            _mailService = new MailService(modelMock.Object, mailSenderServiceMock.Object, CustomLogger.Logger);
 
         }
 

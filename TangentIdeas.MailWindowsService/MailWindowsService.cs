@@ -2,6 +2,7 @@
 using System.ServiceProcess;
 using System.Timers;
 using Tangent.CeviriDukkani.Data.Model;
+using Tangent.CeviriDukkani.Logging;
 using TangetIdeas.MailService.Business.Implementations;
 using TangetIdeas.MailService.Business.Interfaces;
 
@@ -25,7 +26,7 @@ namespace TangentIdeas.MailWindowsService
             tmMail.Start();
             tmMail.Elapsed += TmMail_Elapsed;
 
-            _mailService = new MailService(new CeviriDukkaniModel(), new YandexMailService());
+            _mailService = new MailService(new CeviriDukkaniModel(), new YandexMailService(), CustomLogger.Logger);
         }
         
         private void TmMail_Elapsed(object sender, ElapsedEventArgs e)

@@ -1,18 +1,12 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Tangent.CeviriDukkani.Data.Model;
 using Tangent.CeviriDukkani.Domain.Dto.Enums;
 using Tangent.CeviriDukkani.Domain.Dto.Request;
 using Tangent.CeviriDukkani.Domain.Entities.System;
 using Tangent.CeviriDukkani.WebCore.BaseControllers;
-using TangetIdeas.MailService.Business.Implementations;
 using TangetIdeas.MailService.Business.Interfaces;
-
-
 
 namespace TangentIdeas.Mail.Api.Controllers
 {

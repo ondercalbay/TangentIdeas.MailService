@@ -1,7 +1,9 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Tangent.CeviriDukkani.Data.Model;
 using Tangent.CeviriDukkani.Domain.Common;
@@ -19,11 +21,13 @@ namespace TangetIdeas.MailService.Business.Implementations
         //internal ILog Log { get; } = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private readonly CeviriDukkaniModel _model;
         private readonly IMailSenderService _mailSenderService;
+        private readonly ILog _logger;
 
-        public MailService(CeviriDukkaniModel model, IMailSenderService mailSenderService)
+        public MailService(CeviriDukkaniModel model, IMailSenderService mailSenderService, ILog logger)
         {
             _model = model;
             _mailSenderService = mailSenderService;
+            _logger = logger;
         }
 
         public ServiceResult GetWaitingMail()
@@ -62,6 +66,7 @@ namespace TangetIdeas.MailService.Business.Implementations
             {
                 serviceResult.Exception = exc;
                 serviceResult.ServiceResultType = ServiceResultType.Fail;
+                _logger.Error($"Error occured in {MethodBase.GetCurrentMethod().Name} with exception message {exc.Message} and inner exception {exc.InnerException?.Message}");
             }
             return serviceResult;
         }
@@ -89,7 +94,7 @@ namespace TangetIdeas.MailService.Business.Implementations
             {
                 serviceResult.Exception = exc;
                 serviceResult.ServiceResultType = ServiceResultType.Fail;
-                //Log.Error($"Error occured in {MethodBase.GetCurrentMethod().Name} with exception message {exc.Message} and inner exception {exc.InnerException?.Message}");
+                _logger.Error($"Error occured in {MethodBase.GetCurrentMethod().Name} with exception message {exc.Message} and inner exception {exc.InnerException?.Message}");
             }
             return serviceResult;
         }
@@ -120,7 +125,7 @@ namespace TangetIdeas.MailService.Business.Implementations
             {
                 serviceResult.Exception = exc;
                 serviceResult.ServiceResultType = ServiceResultType.Fail;
-                //Log.Error($"Error occured in {MethodBase.GetCurrentMethod().Name} with exception message {exc.Message} and inner exception {exc.InnerException?.Message}");
+                _logger.Error($"Error occured in {MethodBase.GetCurrentMethod().Name} with exception message {exc.Message} and inner exception {exc.InnerException?.Message}");
             }
             return serviceResult;
         }
@@ -150,6 +155,7 @@ namespace TangetIdeas.MailService.Business.Implementations
             {
                 serviceResult.Exception = exc;
                 serviceResult.ServiceResultType = ServiceResultType.Fail;
+                _logger.Error($"Error occured in {MethodBase.GetCurrentMethod().Name} with exception message {exc.Message} and inner exception {exc.InnerException?.Message}");
             }
             return serviceResult;
         }

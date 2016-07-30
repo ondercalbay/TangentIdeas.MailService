@@ -1,17 +1,9 @@
 ﻿using log4net;
 using RabbitMQ.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Tangent.CeviriDukkani.Domain.Common;
-using Tangent.CeviriDukkani.Domain.Dto.Enums;
 using Tangent.CeviriDukkani.Domain.Dto.Request;
-using Tangent.CeviriDukkani.Domain.Dto.Translation;
-using Tangent.CeviriDukkani.Domain.Entities.System;
-using Tangent.CeviriDukkani.Event.DocumentEvents;
 using Tangent.CeviriDukkani.Event.MailEvents;
-using Tangent.CeviriDukkani.Event.OrderEvents;
-using Tangent.CeviriDukkani.Messaging;
 using Tangent.CeviriDukkani.Messaging.Consumer;
 using Tangent.CeviriDukkani.Messaging.Producer;
 using TangetIdeas.MailService.Business.Interfaces;
