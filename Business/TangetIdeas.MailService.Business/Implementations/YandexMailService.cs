@@ -24,8 +24,8 @@ namespace TangetIdeas.MailService.Business.Implementations
             };
             try
             {
-                string emailAddress = ConfigurationManager.AppSettings["EmailAddress" + mailSender],
-                    emailPassword = ConfigurationManager.AppSettings["EmailPassword" + mailSender],
+                string emailAddress = ConfigurationManager.AppSettings["EmailAddress_" + mailSender],
+                    emailPassword = ConfigurationManager.AppSettings["EmailPassword_" + mailSender],
                     emailSmtp = ConfigurationManager.AppSettings["EmailSmtp"], emailSmtpPort = ConfigurationManager.AppSettings["EmailSmtpPort"];
 
 

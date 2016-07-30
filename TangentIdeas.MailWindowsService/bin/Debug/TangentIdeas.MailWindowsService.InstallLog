@@ -13,3 +13,50 @@ Etkilenen parametreler şunlardır:
    logfile = D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
    assemblypath = D:\öNDER\Kişisel\Projeler\MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
    logtoconsole = 
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yükleniyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService hizmeti yükleniyor...
+Application günlüğünde TangentIdeas.MailWindowsService EventLog kaynağı oluşturuluyor...
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi geri alınıyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService kaynağı için olay günlüğü önceki duruma döndürülüyor.
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yüklemesi kaldırılıyor.
+Etkilenen parametreler şunlardır:
+   logtoconsole = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+TangentIdeas.MailWindowsService EventLog kaynağı kaldırılıyor.
+TangentIdeas.MailWindowsService hizmeti sistemden kaldırılıyor...
+TangentIdeas.MailWindowsService hizmeti sistemden başarıyla kaldırıldı.
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yükleniyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService hizmeti yükleniyor...
+Application günlüğünde TangentIdeas.MailWindowsService EventLog kaynağı oluşturuluyor...
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi geri alınıyor.
+Etkilenen parametreler şunlardır:
+   i = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+   logtoconsole = 
+TangentIdeas.MailWindowsService kaynağı için olay günlüğü önceki duruma döndürülüyor.
+'D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe' derlemesi yüklemesi kaldırılıyor.
+Etkilenen parametreler şunlardır:
+   logtoconsole = 
+   logfile = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.InstallLog
+   assemblypath = D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\TangentIdeas.MailWindowsService.exe
+TangentIdeas.MailWindowsService EventLog kaynağı kaldırılıyor.
+Uyarı: TangentIdeas.MailWindowsService kaynağı yerel makinede kayıtlı değil.
+TangentIdeas.MailWindowsService hizmeti sistemden kaldırılıyor...
+TangentIdeas.MailWindowsService hizmeti sistemden başarıyla kaldırıldı.
