@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -18,6 +21,19 @@ namespace TangentIdeas.Mail.Api.Controllers
             _mailService = mailService;
         }
 
+        [HttpGet,Route("hello")]
+        public string Hello()
+        {
+            SendMailRequestDto mailItem = new SendMailRequestDto();
+            mailItem.MailSender =  MailSenderTypeEnum.User;
+            mailItem.Message = "Mesaj";
+            mailItem.Subject = "Konu";
+            mailItem.To = new List<string> { "ondercalbay@hotmail.com" };
+
+            return JsonConvert.SerializeObject(mailItem);
+        }
+
+
         [HttpPost, Route("sendMails")]
         public HttpResponseMessage SendMails([FromBody]SendMailRequestDto sendMailRequest) {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
@@ -30,6 +46,9 @@ namespace TangentIdeas.Mail.Api.Controllers
                 mailItem.Subject = sendMailRequest.Subject;
                 mailItem.Status = MailStatusTypeEnum.Waiting;
                 mailItem.To = sendMailRequest.To.Select(a => new MailTarget { MailAddres = a }).ToList();
+                mailItem.CreatedAt = DateTime.Now;
+                mailItem.CreatedBy = 1;
+                mailItem.Active = true;
                 
                 var serviceResult = _mailService.Add(mailItem);
             }

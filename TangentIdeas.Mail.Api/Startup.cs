@@ -1,4 +1,5 @@
-﻿using Owin;
+﻿using Autofac.Integration.WebApi;
+using Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,11 @@ namespace TangentIdeas.Mail.Api
         public void Configuration(IAppBuilder appBuilder)
         {
             // Configure Web API for self-host. 
+
             HttpConfiguration config = new HttpConfiguration();
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            config.MapHttpAttributeRoutes();
+
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(Program.Container);
 
             appBuilder.UseWebApi(config);
         }

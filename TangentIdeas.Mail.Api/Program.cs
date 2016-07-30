@@ -29,15 +29,15 @@ namespace TangentIdeas.Mail.Api
             var webApp = WebApp.Start<Startup>(url: baseAddress);
             Console.WriteLine($"Mail is ready in {baseAddress}");
 
-            Container.Resolve<MailEventProjection>().Start();
+            //Container.Resolve<MailEventProjection>().Start();
             Console.WriteLine("Projection started...");
             Console.ReadLine();
 
             Console.WriteLine("Starting to close Mail...");
 
-            CustomLogger.Logger.Info($"Mail service is down with projections {DateTime.Today}");
+            //CustomLogger.Logger.Info($"Mail service is down with projections {DateTime.Today}");
 
-            Container.Resolve<IConnection>().Close();
+            //Container.Resolve<IConnection>().Close();
         }
 
         public static void Bootstrapper()
@@ -47,13 +47,13 @@ namespace TangentIdeas.Mail.Api
             builder.RegisterBusiness();
 
             var settings = builder.RegisterSettings();
-            builder.RegisterEvents(settings);
+            //builder.RegisterEvents(settings);
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterType<MailEventProjection>().AsSelf().SingleInstance();
 
             Container = builder.Build();
-            CustomLogger.Logger.Info($"Mail service is up and ready with projections {DateTime.Today}");
+            //CustomLogger.Logger.Info($"Mail service is up and ready with projections {DateTime.Today}");
         }
 
         public static IContainer Container { get; set; }

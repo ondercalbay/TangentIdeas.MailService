@@ -75,3 +75,12 @@ D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsSer
 D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\obj\Debug\TangentIdeas.MailWindowsService.csproj.GenerateResource.Cache
 D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\obj\Debug\TangentIdeas.MailWindowsService.exe
 D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\obj\Debug\TangentIdeas.MailWindowsService.pdb
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\Log4Mongo.dll
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\log4net.dll
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\MongoDB.Bson.dll
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\MongoDB.Driver.Core.dll
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\MongoDB.Driver.dll
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\Tangent.CeviriDukkani.Logging.dll
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\log4net.xml
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\MongoDB.Bson.xml
+D:\öNDER\Kişisel\Projeler\TangentIdeas.MailService\TangentIdeas.MailWindowsService\bin\Debug\MongoDB.Driver.xml
