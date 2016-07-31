@@ -136,7 +136,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Tangent.CeviriDukkani.Messaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CeviriDukkaniMessaging.1.0.2.7\lib\Tangent.CeviriDukkani.Messaging.dll</HintPath>
+      <HintPath>..\packages\CeviriDukkaniMessaging.1.0.2.8\lib\Tangent.CeviriDukkani.Messaging.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Tangent.CeviriDukkani.WebCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
