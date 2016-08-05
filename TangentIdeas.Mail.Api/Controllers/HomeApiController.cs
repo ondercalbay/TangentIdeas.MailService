@@ -21,17 +21,17 @@ namespace TangentIdeas.Mail.Api.Controllers
             _mailService = mailService;
         }
 
-        [HttpGet,Route("hello")]
-        public string Hello()
-        {
-            SendMailRequestDto mailItem = new SendMailRequestDto();
-            mailItem.MailSender =  MailSenderTypeEnum.User;
-            mailItem.Message = "Mesaj";
-            mailItem.Subject = "Konu";
-            mailItem.To = new List<string> { "ondercalbay@hotmail.com" };
+        //[HttpGet,Route("hello")]
+        //public string Hello()
+        //{
+        //    SendMailRequestDto mailItem = new SendMailRequestDto();
+        //    mailItem.MailSender =  MailSenderTypeEnum.User;
+        //    mailItem.Message = "Mesaj";
+        //    mailItem.Subject = "Konu";
+        //    mailItem.To = new List<string> { "ondercalbay@hotmail.com" };
 
-            return JsonConvert.SerializeObject(mailItem);
-        }
+        //    return JsonConvert.SerializeObject(mailItem);
+        //}
 
 
         [HttpPost, Route("sendMails")]
@@ -40,17 +40,7 @@ namespace TangentIdeas.Mail.Api.Controllers
 
             try
             {
-                MailItem mailItem = new MailItem();
-                mailItem.MailSender = sendMailRequest.MailSender;
-                mailItem.Message = sendMailRequest.Message;
-                mailItem.Subject = sendMailRequest.Subject;
-                mailItem.Status = MailStatusTypeEnum.Waiting;
-                mailItem.To = sendMailRequest.To.Select(a => new MailTarget { MailAddres = a }).ToList();
-                mailItem.CreatedAt = DateTime.Now;
-                mailItem.CreatedBy = 1;
-                mailItem.Active = true;
-                
-                var serviceResult = _mailService.Add(mailItem);
+                var serviceResult = _mailService.Add(sendMailRequest);
             }
             catch
             {

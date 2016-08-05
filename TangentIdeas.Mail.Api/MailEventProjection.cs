@@ -40,9 +40,8 @@ namespace TangentIdeas.Mail.Api
         {
             SendMailRequestDto mail = new SendMailRequestDto
             {
-                MailSender = sendMailEvent.MailSender,
-                Message = sendMailEvent.Message,
-                Subject = sendMailEvent.Subject,
+                Data = sendMailEvent.Data,
+                MailType = sendMailEvent.MailType,                
                 To = sendMailEvent.To
             };
 
