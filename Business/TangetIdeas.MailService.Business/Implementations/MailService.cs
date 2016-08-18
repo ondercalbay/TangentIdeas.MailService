@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Tangent.CeviriDukkani.Data.Model;
