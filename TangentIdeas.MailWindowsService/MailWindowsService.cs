@@ -1,4 +1,6 @@
-﻿using System;
+﻿using log4net;
+using System;
+using System.Reflection;
 using System.ServiceProcess;
 using System.Timers;
 using Tangent.CeviriDukkani.Data.Model;
@@ -17,18 +19,30 @@ namespace TangentIdeas.MailWindowsService
         Timer tmMail = new Timer();
 
         private IMailService _mailService;
-
+        private readonly ILog _logger = CustomLogger.Logger;
+        private Exception _exc;
         protected override void OnStart(string[] args)
         {
-            tmMail.Interval = 15000;
-            tmMail.AutoReset = true;
-            tmMail.Enabled = true;
-            tmMail.Start();
-            tmMail.Elapsed += TmMail_Elapsed;
+            try
+            {
+                
+                tmMail.Interval = 15000;
+                tmMail.AutoReset = true;
+                tmMail.Enabled = true;
+                tmMail.Start();
+                tmMail.Elapsed += TmMail_Elapsed;
 
-            _mailService = new MailService(new CeviriDukkaniModel(), new YandexMailService(), CustomLogger.Logger);
+                CustomLogger.Logger.Info($"Mail service is Start {DateTime.Today}");
+
+                _mailService = new MailService(new CeviriDukkaniModel(), new YandexMailService(), CustomLogger.Logger);
+
+            }
+            catch (Exception exc)
+            {
+                _exc = exc;
+                _logger.Error($"Error occured in {MethodBase.GetCurrentMethod()} with message {exc.Message}");
+            }
         }
-        
         private void TmMail_Elapsed(object sender, ElapsedEventArgs e)
         {
             tmMail.Enabled = false;
@@ -37,9 +51,9 @@ namespace TangentIdeas.MailWindowsService
             {
                 var srMail = _mailService.SendWaitingMails();                
             }
-            catch (Exception ex)
+            catch (Exception exc)
             {
-                throw ex;
+                _logger.Error($"Error occured in {MethodBase.GetCurrentMethod()} with message {exc.Message}");
             }
 
             tmMail.Enabled = true;

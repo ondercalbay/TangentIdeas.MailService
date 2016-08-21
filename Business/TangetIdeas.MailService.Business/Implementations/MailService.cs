@@ -164,7 +164,7 @@ namespace TangetIdeas.MailService.Business.Implementations
 
                 StringBuilder mailContent = new StringBuilder();
 
-                mailContent.Append(File.ReadAllText("\\MailTemplates\\" + sendMailRequest.MailType.ToString() + "Template.html"));
+                mailContent.Append(File.ReadAllText("\\MailKaliplari\\" + sendMailRequest.MailType.ToString() + ".html"));
                 
                 List<FieldValue> fields = GetFieldsAndValues(sendMailRequest.Data);
 
@@ -251,11 +251,8 @@ namespace TangetIdeas.MailService.Business.Implementations
                 {
                     mailContent.Replace("{" + item.Name + "}", item.Data.ToString());
                 }
-                
-                StringBuilder emailFile = new StringBuilder();
-                emailFile.Append(File.ReadAllText("\\MailTemplates\\EmailTemplate.html"));
-                emailFile.Replace("[MAIL-TEMPLATE]", mailContent.ToString());
-                mailItem.Message = emailFile.ToString();
+         
+                mailItem.Message = mailContent.ToString();
                 
                 List<MailTarget> To = new List<MailTarget>();
                 foreach (var item in sendMailRequest.To)

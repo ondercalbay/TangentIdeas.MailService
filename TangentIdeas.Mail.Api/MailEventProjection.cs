@@ -1,6 +1,7 @@
 ﻿using log4net;
 using RabbitMQ.Client;
 using System;
+using System.Reflection;
 using Tangent.CeviriDukkani.Domain.Common;
 using Tangent.CeviriDukkani.Domain.Dto.Request;
 using Tangent.CeviriDukkani.Event.MailEvents;
@@ -15,6 +16,7 @@ namespace TangentIdeas.Mail.Api
         private readonly IMailService _mailService;
         private readonly IDispatchCommits _dispatcher;
         private readonly RabbitMqSubscription _consumer;
+        private ILog _logger;
 
         public MailEventProjection(IConnection connection, IMailService mailService, IDispatchCommits dispatcher, ILog logger)
         {
@@ -24,6 +26,7 @@ namespace TangentIdeas.Mail.Api
             _consumer
                 .WithAppName("mail-projection")
                 .WithEvent<SendMailEvent>(Handle);
+            _logger = logger;
         }
 
         public void Start()
@@ -49,6 +52,7 @@ namespace TangentIdeas.Mail.Api
             if (serviceResult.ServiceResultType != ServiceResultType.Success)
             {
                 Console.WriteLine("Error occure while sending mail.");
+                _logger.Error($"Error occured in {MethodBase.GetCurrentMethod()} with message {serviceResult.Exception.Message}");
             }
         }
     }

@@ -168,6 +168,41 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="MailKaliplari\AdminTestOnayla.html" />
+    <Content Include="MailKaliplari\BireyselRegistration.html" />
+    <Content Include="MailKaliplari\ceviritamamlandi.html" />
+    <Content Include="MailKaliplari\dekont.html" />
+    <Content Include="MailKaliplari\editorkontrolleribitirdi.html" />
+    <Content Include="MailKaliplari\EmailConfirmation.html" />
+    <Content Include="MailKaliplari\IhaleAlindi.html" />
+    <Content Include="MailKaliplari\IhaleyeIsAc.html" />
+    <Content Include="MailKaliplari\ikon.png" />
+    <Content Include="MailKaliplari\InsanKaynaklari.html" />
+    <Content Include="MailKaliplari\KurumsalRegistration.html" />
+    <Content Include="MailKaliplari\logo.png" />
+    <Content Include="MailKaliplari\MusteriRevizeGonder.html" />
+    <Content Include="MailKaliplari\no.png" />
+    <Content Include="MailKaliplari\OdemeAlindi.html" />
+    <Content Include="MailKaliplari\ok.png" />
+    <Content Include="MailKaliplari\red.png" />
+    <Content Include="MailKaliplari\RevizeFinal.html" />
+    <Content Include="MailKaliplari\Siparis.html" />
+    <Content Include="MailKaliplari\SiparisIptal.html" />
+    <Content Include="MailKaliplari\SiparisTamamlandi.html" />
+    <Content Include="MailKaliplari\TeklifCevabi.html" />
+    <Content Include="MailKaliplari\TeklifRedAciklamasi.html" />
+    <Content Include="MailKaliplari\TeklifRedEdildi.html" />
+    <Content Include="MailKaliplari\TeklifTalebi.html" />
+    <Content Include="MailKaliplari\tercuman-siparis-iptal.html" />
+    <Content Include="MailKaliplari\TercumanIsGonder.html" />
+    <Content Include="MailKaliplari\TestGonder.html" />
+    <Content Include="MailKaliplari\TranslatorWelcomingMail.html" />
+    <Content Include="MailKaliplari\____kontrol-bekleyen-dosyalar.html" />
+    <Content Include="MailKaliplari\____tercumeyi-bitirdim.html" />
+    <Content Include="MailKaliplari\____Test-Tercume-Onaylandi.html" />
+    <Content Include="MailKaliplari\____Test-Tercume-RedEdildi.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

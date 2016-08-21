@@ -4,9 +4,14 @@ using log4net;
 using Microsoft.Owin.Hosting;
 using RabbitMQ.Client;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Reflection;
 using Tangent.CeviriDukkani.Data.Model;
+using Tangent.CeviriDukkani.Domain.Common;
+using Tangent.CeviriDukkani.Domain.Dto.Enums;
+using Tangent.CeviriDukkani.Domain.Dto.Request;
+using Tangent.CeviriDukkani.Domain.Dto.System;
 using Tangent.CeviriDukkani.Domain.Mappers;
 using Tangent.CeviriDukkani.Logging;
 using Tangent.CeviriDukkani.Messaging;
@@ -38,6 +43,27 @@ namespace TangentIdeas.Mail.Api
             //CustomLogger.Logger.Info($"Mail service is down with projections {DateTime.Today}");
 
             //Container.Resolve<IConnection>().Close();
+            Test();
+
+        }
+
+        private static void Test()
+        {
+            CustomLogger.Logger.Info($"Mail service is Start {DateTime.Today}");
+            MailDataDto.BireyselRegistration data = new MailDataDto.BireyselRegistration { adsoyad = "Önder ÇALBAY" };
+
+            SendMailRequestDto mail = new SendMailRequestDto
+            {
+                Data = data,
+                MailType = MailTypeEnum.BireyselRegistration,
+                To = new List<string>(new string[] { "ondercalbay@hotmail.com" })
+            };
+            IMailService mailService = new MailService(new CeviriDukkaniModel(), new YandexMailService(), CustomLogger.Logger);
+            var serviceResult = mailService.Add(mail);
+            if (serviceResult.ServiceResultType != ServiceResultType.Success)
+            {
+                Console.WriteLine("Error occure while sending mail.");
+            }
         }
 
         public static void Bootstrapper()

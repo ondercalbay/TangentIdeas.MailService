@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Çeviri Dükkanı</title>
+
+	<style type="text/css">
+		body,td,th {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			color: #303030;
+			line-height: 25px;
+		}
+		body {
+			background-color: #FFF;
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+
+		.tasiyici{
+			width: 600px;
+			height: auto;
+			border-bottom: 15px solid #000;
+		}
+		.logo{
+			margin-top:20px;
+			float:right;
+		}
+		.icerik{
+			margin-top: 20px;
+			width:560px;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+
+		span{
+			color:#81dc00;
+			font-weight: bold;
+			font-size: 22px;
+			line-height: 40px;
+		}
+
+		.bilgi{
+			border:2px solid #81dc00;
+			padding:10px;
+			width:100%;
+			box-sizing:border-box;
+			border-radius: 10px;
+			margin:20px 0 10px 0;
+		}
+		
+
+		.bilgi2{
+			border:7px solid #f2f2f2;
+			background-color: #f9f9f9;
+			color:#666666;
+			padding:10px;
+			width:100%;
+			box-sizing:border-box;
+			margin:20px 0 10px 0;
+		}
+		
+		.ikon{
+			float:left;
+			width:50px;
+			height:50px;
+			margin-right: 20px;
+		}
+		
+		.yazi{
+			float:left;
+			height:20px;
+			width:460px;
+			margin-top: 12px;
+			color:#5b5b5b;
+		}
+		
+		.buton1{
+			float:left;
+			width:200px;
+			text-align: center;
+			padding:5px;
+			border-radius: 2px;
+			background-color: #81dc00;
+			color:#fff;
+			margin-right: 10px;
+			margin-bottom: 50px;
+		}
+		
+		.buton2{
+			float:left;
+			width:200px;
+			text-align: center;
+			padding:5px;
+			border-radius: 2px;
+			background-color: #009a7f;
+			color:#fff;
+			margin-right: 10px;
+			margin-bottom: 50px;
+		}
+
+		.datagrid{
+			margin-bottom: 30px;
+			margin-top: 30px;
+		}
+
+		.datagrid table {
+			border-collapse: collapse;
+			text-align: left;
+			width: 100%;
+		}
+
+		.datagrid {
+			background: #fff;
+			border: 3px solid #F2F2F2;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+
+		.datagrid table td, .datagrid table th {
+			padding: 3px 10px;
+		}
+
+		.datagrid table thead th {
+			background-color:#F2F2F2;
+			color:#000;
+			font-size: 15px;
+			font-weight: bold;
+			border-left: 1px solid #F2F2F2;
+		}
+
+		.datagrid table thead th:first-child {
+			border: none;
+		}
+
+		.datagrid table tbody td {
+			color: #000;
+			border-left: 3px solid #F2F2F2;
+			font-size: 13px;
+			font-style: italic;
+			border-bottom: 3px solid #F2F2F2;
+			padding:10px;
+			background-color:#f9f9f9;
+		}
+
+		.datagrid table tbody td:first-child {
+			border-left: none;
+
+		}
+
+		.datagrid table tbody tr:last-child td {
+			border-bottom: none;
+		}
+
+		.ekyazi{
+			padding:10px;
+			border:1px solid #e6e6e6;
+			background-color: #f7f7f7;
+			margin:20px 0;
+		}
+	</style>
+
+</head>
+<body style="width:600px">
+
+<div class="tasiyici">
+	<div class="logo"><img src="{url}/MailKaliplari/logo.png" /></div>
+	<div style="clear:both"></div>
+	
+	<div class="icerik">
+		<b style="font-size:20px">Sayın, Editör aşağıda kontrol bekleyen dosyalarınız var.</b><br />
+		<div class="datagrid">
+			<table>
+				<thead>
+					<tr>
+						<th>Diller</th>
+						<th>Alan</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{KaynakDil} --> {HedefDil}</td>
+						<td>{alan}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<table>
+			<tr>
+				<td width="150">Çeviri Kodu:</td><td>{ceviriId}</td>
+			</tr>
+            <tr>
+				<td width="150">Karakter Sayısı:</td><td>{karakterSayisi}</td>
+			</tr>
+            <tr>
+				<td width="150">Yeminli Tercüme:</td><td>{yeminliTercume}</td>
+			</tr>
+            <tr>
+				<td><b style="color:red">Teslim Tarihi:</b></td><td><b style="color:red">{teslimTarihi}</b></td>
+			</tr>
+            <tr>
+				<td>Döküman:</td><td>{dokuman}</td>
+			</tr>
+            {TerminolojiDosyasi}
+		</table>
+<div class="ekyazi">
+        <b>Tercümana Özel Not:</b><br>
+			{TercumanOzelNot}
+		</div>        
+		<div style="clear:both"></div>
+        <div class="bilgi" style="height:600px">
+			<div class="yazi">	
+		<b style="font-size:20px;">Çeviri Dükkanı Kuralları ve Şartları</b>
+<ul>
+<li>Ödemeler: Cuma günü Garanti Bankası hesabınıza yatırılacaktır. Diğer bankalar ile çalışıldığında gönderim(eft) 
+
+ücreti alınacaktır.</li>
+<li>Her çeviriniz değerlendirilip, TDS(Tercüman Değerlendirme Sistemi) sistemimizde puanlanacaktır. Bu puanlar sizin 
+
+ileride tercih edilip/edilmeme konusunda editörlerimize fikir verecektir.</li>
+<li>Puanları yüksek olan tercümanların sonraki işlerde ödemeleri bir miktar fazla verilecektir.</li>
+<li>Tercümelerde makine çevirisi fark edilirse, bunu yapan tercümanın üyeliği Çeviri Dükkanından uyarılmadan 
+
+silinecektir.</li>
+<li>Çeviri dükkanı üzerinden tercümanlara iletilen çevirilerin zamanında ve düzenli bir şekilde yapılması için, işi 
+
+alan tercüman, 2 saatte bir çevirdiği kısmı sistem üzerinden göndermesi gereklidir.</li>
+<li>İşi alan tercüman, işi zamanında teslim etmez ve iletişim kanallarına zamanında cevap vermezse(mail, telefon vb.) Çeviri Dükkanı işi kendisinden alıp başkasına verme hakkına sahiptir. İş kendisinden alındığı vakit mail ile bildirilecektir.</li>
+</ul>
+        </div>
+        
+        </div><br/>
+        <div style="clear:both"></div>
+        </div>
+        <div style="clear:both"></div>
+	</div>
+    
+</div>
+
+<img src="http://www.ceviridukkani.com/images/imza-hr.gif">
+</body>
+</html>
