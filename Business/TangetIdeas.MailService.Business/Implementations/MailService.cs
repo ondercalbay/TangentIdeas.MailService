@@ -1,6 +1,7 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -25,12 +26,14 @@ namespace TangetIdeas.MailService.Business.Implementations
         private readonly CeviriDukkaniModel _model;
         private readonly IMailSenderService _mailSenderService;
         private readonly ILog _logger;
+        private readonly string _url;
 
         public MailService(CeviriDukkaniModel model, IMailSenderService mailSenderService, ILog logger)
         {
             _model = model;
             _mailSenderService = mailSenderService;
             _logger = logger;
+            _url = ConfigurationSettings.AppSettings["Url"].ToString();
         }
 
         public ServiceResult GetWaitingMail()
@@ -133,6 +136,25 @@ namespace TangetIdeas.MailService.Business.Implementations
             return serviceResult;
         }
 
+
+        class FieldValue {
+            public string Name { get; set; }
+            public object Data { get; set; }
+        }
+
+        private List<FieldValue> GetFieldsAndValues(object data) {
+            var propInfos = data.GetType().GetProperties();
+            var returnList = new List<FieldValue>();
+            foreach (var item in propInfos)
+            {
+                var propName = item.Name;
+                var value = item.GetValue(data);
+
+                returnList.Add(new FieldValue { Name = propName, Data = value });
+            }
+            return returnList;
+        }
+
         public ServiceResult Add(SendMailRequestDto sendMailRequest)
         {
             var serviceResult = new ServiceResult(ServiceResultType.NotKnown);
@@ -143,50 +165,93 @@ namespace TangetIdeas.MailService.Business.Implementations
                 StringBuilder mailContent = new StringBuilder();
 
                 mailContent.Append(File.ReadAllText("\\MailTemplates\\" + sendMailRequest.MailType.ToString() + "Template.html"));
+                
+                List<FieldValue> fields = GetFieldsAndValues(sendMailRequest.Data);
 
+                
                 switch (sendMailRequest.MailType)
                 {
-                    case MailTypeEnum.Register:
+                    case MailTypeEnum.AdminTestOnayla:
                         mailItem.MailSender = MailSenderTypeEnum.User;
-
-                        mailItem.Subject = "Kayıt";
-
-                        var mailRegister = (MailDataDto.Register)sendMailRequest.Data;
-                        mailContent.Replace("[USER-NAME]", mailRegister.UserName).Replace("[USER-EMAIL]", mailRegister.EMail).Replace("[USER-PASS]", mailRegister.Pass);
+                        mailItem.Subject = "Test Tercüme Kontrolü";
+                        //var mdAdminTestOnayla = (MailDataDto.AdminTestOnayla)sendMailRequest.Data;
+                        //mailContent.Replace("{kaynakDokuman}", "<img src=\"" + _url + ttc.TercumanTest.TestResmi + "\" />");                        
                         break;
-                    case MailTypeEnum.ForgetPassword:
+                    case MailTypeEnum.BireyselRegistration:
                         mailItem.MailSender = MailSenderTypeEnum.User;
-
-                        mailItem.Subject = "Şifremi Unuttum";
-
-                        var mailDataForget = (MailDataDto.ForgetPassword)sendMailRequest.Data;
-                        mailContent.Replace("[USER-NAME]", mailDataForget.UserName).Replace("[USER-EMAIL]", mailDataForget.EMail).Replace("[USER-PASS]", mailDataForget.Pass);
+                        mailItem.Subject = "Hoşgeldiniz";
                         break;
-                    case MailTypeEnum.ResetPassword:
+                    case MailTypeEnum.CeviriTamamlandi:
+                        //mailItem.MailSender = MailSenderTypeEnum.User;
+                        //mailItem.Subject = "JobNo:" + Orderid + " " + Konu;
+                        //var mdCeviriTamamlandi = (MailDataDto.CeviriTamamlandi)sendMailRequest.Data;
+                        //string adSoyad = mdCeviriTamamlandi.KurumAdi;
+                        //if (adSoyad != "")
+                        //{
+                        //    adSoyad += " - Gönderen: " + mdCeviriTamamlandi.adsoyad;
+                        //}
+                        //mailContent.Replace("{adsoyad}", adSoyad);
 
-                        mailItem.MailSender = MailSenderTypeEnum.User;
-
-                        mailItem.Subject = "Şifremi Sıfırla";
-
-                        var maDataReset = (MailDataDto.ResetPassword)sendMailRequest.Data;
-                        mailContent.Replace("[USER-NAME]", maDataReset.UserName).Replace("[RESET-LINK]", maDataReset.ResetLink);
                         break;
-                    case MailTypeEnum.UserActivation:
-                        mailItem.MailSender = MailSenderTypeEnum.User;
-
-                        mailItem.Subject = "Kullanıcı Etkinleştirme";
-
-                        var mDataActivation = (MailDataDto.UserActivation)sendMailRequest.Data;
-
-                        mailContent = mailContent.Replace("[USER-NAME]", mDataActivation.UserName).Replace("[DETAIL]", mDataActivation.Comment).Replace("[REGISTER-LINK]", mDataActivation.RegisterLink);
+                    case MailTypeEnum.Dekont:
                         break;
-                    case MailTypeEnum.Welcome:
-                        mailItem.MailSender = MailSenderTypeEnum.User;
-                        mailItem.Subject = "Hoş Geldiniz";
+                    case MailTypeEnum.EditorKontrolleriBitirdi:
+                        break;
+                    case MailTypeEnum.EmailConfirmation:
+                        break;
+                    case MailTypeEnum.IhaleAlindi:
+                        break;
+                    case MailTypeEnum.IhaleyeIsAc:
+                        break;
+                    case MailTypeEnum.InsanKaynaklari:
+                        break;
+                    case MailTypeEnum.KontrolBekleyenDosyalar:
+                        break;
+                    case MailTypeEnum.KurumsalRegistration:
+                        break;
+                    case MailTypeEnum.MusteriRevizeGonder:
+                        break;
+                    case MailTypeEnum.OdemeAlindi:
+                        break;
+                    case MailTypeEnum.RevizeFinal:
+                        break;
+                    case MailTypeEnum.SiparisIptal:
+                        break;
+                    case MailTypeEnum.SiparisTamamlandi:
+                        break;
+                    case MailTypeEnum.Siparis:
+                        break;
+                    case MailTypeEnum.TeklifCevabi:
+                        break;
+                    case MailTypeEnum.TeklifRedAciklamasi:
+                        break;
+                    case MailTypeEnum.TeklifRededildi:
+                        break;
+                    case MailTypeEnum.TeklifTalebi:
+                        break;
+                    case MailTypeEnum.TercumanIsGonder:
+                        break;
+                    case MailTypeEnum.TercumanSiparisIptal:
+                        break;
+                    case MailTypeEnum.TercumeyiBitirdim:
+                        break;
+                    case MailTypeEnum.TestGonder:
+                        break;
+                    case MailTypeEnum.TestTercumeOnaylandi:
+                        break;
+                    case MailTypeEnum.TestTercumeRedEdildi:
+                        break;
+                    case MailTypeEnum.TranslatorWelcomingMail:
                         break;
                     default:
                         break;
                 }
+                mailContent.Replace("{url}", _url);
+                foreach (var item in fields)
+                {
+                    mailContent.Replace("{" + item.Name + "}", item.Data.ToString());
+                }
+                
                 StringBuilder emailFile = new StringBuilder();
                 emailFile.Append(File.ReadAllText("\\MailTemplates\\EmailTemplate.html"));
                 emailFile.Replace("[MAIL-TEMPLATE]", mailContent.ToString());
@@ -202,7 +267,6 @@ namespace TangetIdeas.MailService.Business.Implementations
                 serviceResult = Add(mailItem);
 
                 _mailSenderService.SendMail(mailItem);
-
             }
             catch (Exception exc)
             {
